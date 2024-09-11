@@ -1,6 +1,7 @@
 pipeline {
     agent any
-    tools{Node'Nodejs'}
+    tools {Node "Nodejs"}
+
     environment {
         AWS_ACCOUNT_ID="637423480761"
         AWS_DEFAULT_REGION="us-east-1"
@@ -19,14 +20,13 @@ pipeline {
                  
             }
         }
-        stage('Installing npm express') {
+        stage('intialising npm installations......') {
             steps {
-                script {
-                sh 'npm install'
+              sh 'npm install'
                 }
                  
             }
-        }
+        
         
         stage('Cloning Git') {
             steps {
