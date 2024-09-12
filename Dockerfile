@@ -1,7 +1,13 @@
-FROM python:alpine
-RUN mkdir /app
-ADD . /app
+FROM node:alpine
+
 WORKDIR /app
-RUN pip install -r requirements.txt
-#RUN pip install --upgrade
-CMD ["python","/main.py"]
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3500
+
+CMD [ "node", "index.js" ]
