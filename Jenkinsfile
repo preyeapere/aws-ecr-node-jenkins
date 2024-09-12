@@ -3,11 +3,11 @@ pipeline {
     tools {nodejs "node"}
 
     environment {
-        AWS_ACCOUNT_ID="637423480761"
+        AWS_ACCOUNT_ID="************"
         AWS_DEFAULT_REGION="us-east-1"
         IMAGE_REPO_NAME="jenkins-node-image"
         IMAGE_TAG="latest"
-        REPOSITORY_URI = "637423480761.dkr.ecr.us-east-1.amazonaws.com/jenkins-node-image"
+        REPOSITORY_URI = "************.dkr.ecr.us-east-1.amazonaws.com/jenkins-node-image"
     }
    
     stages {
@@ -23,7 +23,7 @@ pipeline {
        
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/preyeapere/aws-ecr-node-jenkins.git']]])    
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/preyeapere/aws-ecr-node-jenkins.git']]])    
             }
         }
  
